@@ -21,7 +21,7 @@ highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
 " vim-airline
-let g:airline_theme = "deus"
+let g:airline_theme = 'deus'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -50,4 +50,7 @@ if has("mac")
 	map <D-p> :CtrlP<CR>
 	let g:ctrlp_map = '<D-p>'
 	let g:ctrlp_cmd = 'CtrlP'
+
+	" vim-gutentags
+	let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
 endif
