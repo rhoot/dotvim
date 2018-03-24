@@ -19,3 +19,6 @@
 [submodule "bundle/vim-gutentags"]
 	path = bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "bundle/vim-cpp-modern"]
+	path = bundle/vim-cpp-modern
+	url = https://github.com/bfrg/vim-cpp-modern.git

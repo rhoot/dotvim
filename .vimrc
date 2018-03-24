@@ -16,7 +16,7 @@ set list
 set listchars=tab:>-,space:.,extends:>,precedes:<,nbsp:-
 
 " colors
-colorscheme evening
+colorscheme tomorrow-night
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
