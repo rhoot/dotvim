@@ -39,6 +39,7 @@ set shiftwidth=4
 set showmatch
 set smartcase
 set smarttab
+set tabstop=4
 
 if has("gui_running")
 	set guifont=Menlo\ for\ Powerline:h12

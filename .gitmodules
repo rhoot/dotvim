@@ -22,3 +22,6 @@
 [submodule "bundle/vim-cpp-modern"]
 	path = bundle/vim-cpp-modern
 	url = https://github.com/bfrg/vim-cpp-modern.git
+[submodule "bundle/vim-editorconfig"]
+	path = bundle/vim-editorconfig
+	url = https://github.com/sgur/vim-editorconfig.git
