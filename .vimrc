@@ -52,5 +52,6 @@ if has("mac")
 	let g:ctrlp_cmd = 'CtrlP'
 
 	" vim-gutentags
+	let g:gutentags_cache_dir = '~/.vim/tagscache'
 	let g:gutentags_ctags_executable = '/usr/local/bin/ctags'
 endif
