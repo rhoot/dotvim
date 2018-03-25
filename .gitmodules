@@ -25,3 +25,6 @@
 [submodule "bundle/vim-editorconfig"]
 	path = bundle/vim-editorconfig
 	url = https://github.com/sgur/vim-editorconfig.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
