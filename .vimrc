@@ -39,6 +39,9 @@ else
 	let g:ctrlp_map = "<C-p>"
 endif
 
+" nerdtree
+map <leader>f :NERDTreeToggle<CR>
+
 " vim-airline
 let g:airline_theme = "deus"
 let g:airline#extensions#tabline#enabled = 1
@@ -55,9 +58,15 @@ if has("mac")
 	let g:gutentags_ctags_executable = "/usr/local/bin/ctags"
 endif
 
+" vim-workspace
+let g:workspace_session_name = '.session.vim'
+
+nnoremap <leader>s :ToggleWorkspace<CR>
+
 " misc customization
 set autoindent
 set backspace=2
+set hidden
 set hlsearch
 set incsearch
 set noerrorbells
