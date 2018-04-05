@@ -25,7 +25,6 @@ if executable("ag")
 	let g:ackprg = "ag --vimgrep"
 endif
 
-
 " ctrlp
 let g:ctrlp_cmd = "CtrlP"
 
@@ -45,7 +44,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
 if has("gui_running")
-	set guifont=Menlo\ for\ Powerline:h12
+	if has("mac")
+		set guifont=Menlo\ for\ Powerline:h12
+	else
+		set guifont=Menlo\ for\ Powerline:h9
+	endif
 	let g:airline_powerline_fonts = 1
 endif
 
@@ -58,6 +61,7 @@ endif
 " misc customization
 set autoindent
 set backspace=2
+set encoding=utf-8
 set hlsearch
 set incsearch
 set noerrorbells
@@ -70,6 +74,10 @@ set showmatch
 set smartcase
 set smarttab
 set tabstop=4
+
+if has("gui_running")
+	set guioptions-=T
+end
 
 map ]q :cnext<CR>
 map [q :cprev<CR>
