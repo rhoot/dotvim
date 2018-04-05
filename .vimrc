@@ -13,7 +13,7 @@ set nobackup
 
 " show whitespace
 set list
-set listchars=tab:>-,space:.,extends:>,precedes:<,nbsp:-
+set listchars=tab:>-,extends:>,precedes:<,nbsp:-
 
 " colors
 colorscheme tomorrow-night
