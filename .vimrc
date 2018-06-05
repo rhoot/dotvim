@@ -55,12 +55,6 @@ if has("gui_running")
 	let g:airline_powerline_fonts = 1
 endif
 
-" vim-gutentags
-if has("mac")
-	let g:gutentags_cache_dir = "~/.vim/tagscache"
-	let g:gutentags_ctags_executable = "/usr/local/bin/ctags"
-endif
-
 " vim-workspace
 let g:workspace_session_name = '.session.vim'
 
@@ -90,3 +84,5 @@ end
 
 map ]q :cnext<CR>
 map [q :cprev<CR>
+map ]b :bnext<CR>
+map [b :bprevious<CR>
