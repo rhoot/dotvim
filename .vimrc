@@ -49,6 +49,8 @@ let g:airline#extensions#tabline#show_buffers = 0
 if has("gui_running")
 	if has("mac")
 		set guifont=Menlo\ for\ Powerline:h12
+	elseif has("linux")
+		set guifont=Menlo\ for\ Powerline\ 10
 	else
 		set guifont=Menlo\ for\ Powerline:h9
 	endif
@@ -86,3 +88,4 @@ map ]q :cnext<CR>
 map [q :cprev<CR>
 map ]b :bnext<CR>
 map [b :bprevious<CR>
+map <BS> :Bdelete<CR>
