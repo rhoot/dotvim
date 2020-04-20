@@ -47,7 +47,11 @@ endif
 
 " deoplete.nvim
 if has("python3")
-	let g:deoplete#enable_at_startup = 1
+	try
+		python3 import pynvim
+		let g:deoplete#enable_at_startup = 1
+	catch
+	endtry
 endif
 
 set complete-=i
