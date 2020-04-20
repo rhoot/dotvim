@@ -20,6 +20,13 @@ colorscheme tomorrow-night
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
+" LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+	\ 'c': ['/usr/bin/ccls'],
+	\ 'cpp': ['/usr/bin/ccls'],
+	\ 'objc': ['/usr/bin/ccls'],
+	\ }
+
 " ack.vim
 if executable("ag")
 	let g:ackprg = "ag --vimgrep"
@@ -37,6 +44,16 @@ else
 	map <C-P> :CtrlPTag<CR>
 	let g:ctrlp_map = "<C-p>"
 endif
+
+" deoplete.nvim
+if has("python3")
+	let g:deoplete#enable_at_startup = 1
+endif
+
+set complete-=i
+set completeopt=longest,menuone,noinsert
+inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
+inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " nerdtree
 map <leader>f :NERDTreeToggle<CR>
