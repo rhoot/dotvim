@@ -98,6 +98,8 @@ set smarttab
 set tabstop=4
 
 if has("gui_running")
+	set columns=185
+	set lines=56
 	set guioptions-=T
 end
 
