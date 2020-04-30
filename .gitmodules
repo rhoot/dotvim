@@ -22,9 +22,6 @@
 [submodule "bundle/vim-cpp-modern"]
 	path = bundle/vim-cpp-modern
 	url = https://github.com/bfrg/vim-cpp-modern.git
-[submodule "bundle/vim-editorconfig"]
-	path = bundle/vim-editorconfig
-	url = https://github.com/sgur/vim-editorconfig.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
@@ -40,9 +37,6 @@
 [submodule "bundle/bbye"]
 	path = bundle/bbye
 	url = https://github.com/moll/vim-bbye.git
-[submodule "bundle/LanguageClient-neovim"]
-	path = bundle/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim.git
 [submodule "bundle/deoplete.nvim"]
 	path = bundle/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim.git
@@ -52,3 +46,9 @@
 [submodule "bundle/vim-hug-neovim-rpc"]
 	path = bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule "bundle/ale"]
+	path = bundle/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "bundle/editorconfig-vim"]
+	path = bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git

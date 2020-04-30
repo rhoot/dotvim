@@ -1,4 +1,5 @@
 set nocompatible
+so $VIMRUNTIME/mswin.vim
 
 execute pathogen#infect()
 filetype plugin indent on
@@ -20,17 +21,23 @@ colorscheme tomorrow-night
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-	\ 'c': ['/usr/bin/ccls'],
-	\ 'cpp': ['/usr/bin/ccls'],
-	\ 'objc': ['/usr/bin/ccls'],
-	\ }
-
 " ack.vim
 if executable("ag")
 	let g:ackprg = "ag --vimgrep"
 endif
+
+" ale
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+	\ 'c': ['ccls'],
+	\ 'cpp': ['ccls'],
+	\ 'objc': ['ccls'],
+	\ 'lua': ['lua-language-server'],
+	\ }
+let g:ale_cpp_ccls_init_options = {
+	\ 'cacheDirectory': '/tmp/ccls',
+	\ 'cacheFormat': 'binary',
+	\ }
 
 " ctrlp
 let g:ctrlp_cmd = "CtrlP"
@@ -58,6 +65,7 @@ set complete-=i
 set completeopt=longest,menuone,noinsert
 inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
+inoremap <expr><Esc> pumvisible() ? '<C-e>' : '<Esc>'
 
 " nerdtree
 map <leader>f :NERDTreeToggle<CR>
@@ -85,18 +93,24 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 
 " misc customization
 set autoindent
+set autoread
+set autowrite
 set backspace=2
 set encoding=utf-8
 set hidden
 set hlsearch
+set ignorecase
 set incsearch
+set laststatus=2
 set noerrorbells
+set nofoldenable
 set nowrap
 set number
 set ruler
 set shiftround
 set shiftwidth=4
 set showmatch
+set sidescroll=1
 set smartcase
 set smarttab
 set tabstop=4
@@ -111,4 +125,4 @@ map ]q :cnext<CR>
 map [q :cprev<CR>
 map ]b :bnext<CR>
 map [b :bprevious<CR>
-map <BS> :Bdelete<CR>
+map <S-BS> :Bdelete<CR>
