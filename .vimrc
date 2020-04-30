@@ -86,6 +86,9 @@ if has("gui_running")
 	let g:airline_powerline_fonts = 1
 endif
 
+" vim-argwrap
+nnoremap <silent> <leader>a :ArgWrap<CR>
+
 " vim-workspace
 let g:workspace_session_name = '.session.vim'
 
