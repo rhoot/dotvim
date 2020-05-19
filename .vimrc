@@ -65,7 +65,6 @@ set complete-=i
 set completeopt=longest,menuone,noinsert
 inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
-inoremap <expr><Esc> pumvisible() ? '<C-e>' : '<Esc>'
 
 " nerdtree
 map <leader>f :NERDTreeToggle<CR>
