@@ -116,6 +116,8 @@ set sidescroll=1
 set smartcase
 set smarttab
 set tabstop=4
+set wildmenu
+set wildmode=longest,list
 
 if has("gui_running")
 	set columns=185
