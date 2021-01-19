@@ -76,7 +76,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 
 if has("gui_running")
 	if has("mac")
-		set guifont=Menlo\ for\ Powerline:h12
+		set guifont=MenloForPowerline-Regular:h12
 	elseif has("linux")
 		set guifont=Menlo\ for\ Powerline\ 10
 	else
