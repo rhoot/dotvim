@@ -2,7 +2,14 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 source ~/.vimrc
 
-set guifont=JetBrains\ Mono:style=Regular:h10
+if has("mac")
+	set guifont=JetBrains\ Mono:h12
+elseif has("linux")
+	set guifont=JetBrains\ Mono:h10
+else
+	set guifont=JetBrains\ Mono:h9
+endif
+
 set mouse=nvi
 
 lua <<EOF
