@@ -114,7 +114,8 @@ map <leader>f :NERDTreeToggle<CR>
 " vim-airline
 let g:airline_theme = "deus"
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<CR>
