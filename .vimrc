@@ -97,6 +97,7 @@ map <S-BS> :Bdelete<CR>
 
 " ctrlp
 let g:ctrlp_cmd = "CtrlP"
+let g:ctrlp_working_path_mode = 0
 
 if has("mac")
 	map <D-p> :CtrlP<CR>
