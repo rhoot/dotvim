@@ -55,3 +55,9 @@
 [submodule "bundle/cmp-nvim-lsp"]
 	path = bundle/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "bundle/tcomment_vim"]
+	path = bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/vim-interestingwords"]
+	path = bundle/vim-interestingwords
+	url = https://github.com/lfv89/vim-interestingwords.git
