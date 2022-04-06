@@ -21,7 +21,7 @@ set nobackup
 
 " show whitespace
 set list
-set listchars=tab:>-,extends:>,precedes:<,nbsp:-
+set listchars=tab:>-,space:.,extends:>,precedes:<,nbsp:-
 
 " system clipboard
 map  <S-Insert> "+p
