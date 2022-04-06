@@ -95,18 +95,13 @@ endif
 " bbye
 map <S-BS> :Bdelete<CR>
 
-" ctrlp
-let g:ctrlp_cmd = "CtrlP"
-let g:ctrlp_working_path_mode = 0
-
-if has("mac")
-	map <D-p> :CtrlP<CR>
-	map <D-P> :CtrlPTag<CR>
-	let g:ctrlp_map = "<D-p>"
-else
-	map <C-p> :CtrlP<CR>
-	map <C-P> :CtrlPTag<CR>
-	let g:ctrlp_map = "<C-p>"
+" fzf
+if executable("fzf")
+	if has("mac")
+		map <D-p> :Files<CR>
+	else
+		map <C-p> :Files<CR>
+	endif
 endif
 
 " nerdtree
