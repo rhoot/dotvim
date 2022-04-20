@@ -1,14 +1,21 @@
 set nocompatible
 
-if !has("nvim")
-	let g:pathogen_disabled = [
-		\ "cmp-nvim-lsp",
-		\ "nvim-cmp",
-		\ "nvim-lspconfig",
-		\ ]
+" optional plugins
+if has("nvim")
+	packadd cmp-nvim-lsp
+	packadd nvim-cmp
+	packadd nvim-lspconfig
 endif
 
-execute pathogen#infect()
+if executable("ag") || executable("ack")
+	packadd ack.vim
+endif
+
+if executable("fzf")
+	packadd fzf
+	packadd fzf.vim
+endif
+
 filetype plugin indent on
 syntax on
 
