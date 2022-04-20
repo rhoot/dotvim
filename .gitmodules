@@ -13,15 +13,9 @@
 [submodule "bundle/vim-gutentags"]
 	path = bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
-[submodule "bundle/vim-cpp-modern"]
-	path = pack/plugins/start/vim-cpp-modern
-	url = https://github.com/bfrg/vim-cpp-modern.git
 [submodule "bundle/ack.vim"]
 	path = pack/plugins/opt/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/vim-lua"]
-	path = pack/plugins/start/vim-lua
-	url = https://github.com/tbastos/vim-lua.git
 [submodule "bundle/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
