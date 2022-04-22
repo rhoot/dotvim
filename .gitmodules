@@ -10,9 +10,6 @@
 [submodule "bundle/vim-gitgutter"]
 	path = pack/plugins/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "bundle/vim-gutentags"]
-	path = bundle/vim-gutentags
-	url = https://github.com/ludovicchabant/vim-gutentags.git
 [submodule "bundle/ack.vim"]
 	path = pack/plugins/opt/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
