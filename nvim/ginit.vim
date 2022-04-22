@@ -5,7 +5,7 @@ if exists(":GuiFont")
 end
 
 " disable GUI tab line
-if exists(":GuiTabLine")
+if exists(":GuiTabline")
 	:GuiTabline 0
 end
 
