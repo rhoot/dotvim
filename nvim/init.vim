@@ -4,10 +4,8 @@ source ~/.vimrc
 
 if has("mac")
 	set guifont=JetBrains\ Mono:h12
-elseif has("linux")
-	set guifont=JetBrains\ Mono:h10
 else
-	set guifont=JetBrains\ Mono:h9
+	set guifont=JetBrains\ Mono:h10
 endif
 
 set mouse=nvi
