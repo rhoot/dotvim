@@ -2,9 +2,9 @@ set nocompatible
 
 " optional plugins
 if has("nvim")
-	packadd cmp-nvim-lsp
-	packadd nvim-cmp
-	packadd nvim-lspconfig
+	packadd! cmp-nvim-lsp
+	packadd! nvim-cmp
+	packadd! nvim-lspconfig
 endif
 
 if executable("ag") || executable("ack")
@@ -53,7 +53,7 @@ if has("gui_running")
 	elseif has("linux")
 		set guifont=JetBrains\ Mono\ 10
 	else
-		set guifont=JetBrains\ Mono:h9
+		set guifont=JetBrains\ Mono:h10
 	endif
 endif
 
