@@ -28,27 +28,29 @@ lua <<EOF
 	}
 
 	local opts = { noremap=true, silent=true }
-	vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.open_float()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.setloclist()<CR>", opts)
+	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+	vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<CR>", opts)
 
-	local on_attach = function(client, bufnr)
+	local function on_attach(client, bufnr)
 		-- Enable completion triggerd by <c-x><c-o>
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 		-- Mappings
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+		local bufopts = { noremap=true, silent=true, buffer=bufnr }
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+		vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, bufopts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+		vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 	end
 
 	require("lspconfig").clangd.setup {
 		on_attach = on_attach,
-		cmd = {"clangd", "--background-index", "--log=verbose", "--header-insertion=never"},
+		cmd = {"clangd", "--background-index", "--header-insertion=never"},
 	}
 EOF
