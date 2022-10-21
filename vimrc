@@ -33,7 +33,7 @@ set listchars=tab:>-,space:.,extends:>,precedes:<,nbsp:-
 " system clipboard
 map  <S-Insert> "+p
 map  <C-Insert> "+y
-map! <S-Insert> <C-o>"+p
+map! <S-Insert> <C-R>+
 
 " completion
 set complete-=i
@@ -68,6 +68,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set linebreak
 set noerrorbells
 set nofoldenable
 set nowrap
