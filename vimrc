@@ -104,6 +104,10 @@ endif
 map <S-BS> :Bdelete<CR>
 
 " fzf
+if executable("ag")
+	let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+endif
+
 if executable("fzf")
 	if has("mac")
 		map <D-p> :Files<CR>
