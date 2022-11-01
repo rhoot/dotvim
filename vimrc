@@ -42,7 +42,7 @@ inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " colors
-colorscheme tomorrow-night
+colorscheme sonokai
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 

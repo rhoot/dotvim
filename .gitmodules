@@ -58,3 +58,6 @@
 [submodule "bundle/vim-polyglot"]
 	path = pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "pack/plugins/start/sonokai"]
+	path = pack/plugins/start/sonokai
+	url = https://github.com/sainnhe/sonokai.git
