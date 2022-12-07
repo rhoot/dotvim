@@ -12,6 +12,7 @@ set mouse=nvi
 
 lua <<EOF
 	local cmp = require("cmp")
+
 	cmp.setup {
 		mapping = {
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -24,6 +25,7 @@ lua <<EOF
 		},
 		sources = {
 			{ name = "nvim_lsp" },
+			{ name = "nvim_lsp_signature_help" },
 		},
 	}
 

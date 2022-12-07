@@ -3,6 +3,7 @@ set nocompatible
 " optional plugins
 if has("nvim")
 	packadd! cmp-nvim-lsp
+	packadd! cmp-nvim-lsp-signature-help
 	packadd! nvim-cmp
 	packadd! nvim-lspconfig
 endif

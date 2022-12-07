@@ -61,3 +61,6 @@
 [submodule "pack/plugins/start/sonokai"]
 	path = pack/plugins/start/sonokai
 	url = https://github.com/sainnhe/sonokai.git
+[submodule "pack/plugins/opt/cmp-nvim-lsp-signature-help"]
+	path = pack/plugins/opt/cmp-nvim-lsp-signature-help
+	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
