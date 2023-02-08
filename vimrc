@@ -36,9 +36,15 @@ inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " colors
+let g:neovide_transparency = 0.9
+
+augroup trans_bg
+	au ColorScheme * highlight Normal ctermbg=none guibg=#111111
+	au ColorScheme * highlight NonText ctermbg=none guibg=#111111
+	au ColorScheme * highlight EndOfBuffer ctermbg=none guibg=#111111
+augroup END
+
 colorscheme sonokai
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
 
 " GVim/MacVim fonts
 if has("gui_running")
