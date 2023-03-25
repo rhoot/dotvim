@@ -17,6 +17,9 @@ add_symlink() {
 	ln -s "$target" "$link"
 }
 
+mkdir -p ~/.config
+mkdir -p ~/.local/share/fonts
+
 add_symlink "$script_dir/nvim" ~/.config/nvim
 add_symlink "$script_dir/vimrc" ~/.vimrc
 add_symlink "$script_dir/gvimrc" ~/.gvimrc
