@@ -43,17 +43,17 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-let g:neovide_transparency = 0.9
-
 let g:sonokai_better_performance = 1
 let g:sonokai_diagnostic_text_highlight = 1
 let g:sonokai_diagnostic_virtual_text = 'colored'
 
-augroup trans_bg
-	au ColorScheme * highlight Normal ctermbg=none guibg=#111111
-	au ColorScheme * highlight NonText ctermbg=none guibg=#111111
-	au ColorScheme * highlight EndOfBuffer ctermbg=none guibg=#111111
-augroup END
+if !has("gui_running")
+	augroup trans_bg
+		au ColorScheme * highlight Normal ctermbg=none guibg=#111111
+		au ColorScheme * highlight NonText ctermbg=none guibg=#111111
+		au ColorScheme * highlight EndOfBuffer ctermbg=none guibg=#111111
+	augroup END
+end
 
 colorscheme sonokai
 
