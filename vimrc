@@ -1,5 +1,8 @@
 set nocompatible
 
+" required plugins (https://github.com/sainnhe/gruvbox-material/issues/60)
+packadd! sonokai
+
 " optional plugins
 if executable("ag") || executable("ack")
 	packadd ack.vim
@@ -36,13 +39,16 @@ inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " colors
+if has('termguicolors')
+	set termguicolors
+endif
+
 let g:neovide_transparency = 0.9
 
-augroup trans_bg
-	au ColorScheme * highlight Normal ctermbg=none guibg=#111111
-	au ColorScheme * highlight NonText ctermbg=none guibg=#111111
-	au ColorScheme * highlight EndOfBuffer ctermbg=none guibg=#111111
-augroup END
+let g:sonokai_better_performance = 1
+let g:sonokai_diagnostic_text_highlight = 1
+let g:sonokai_diagnostic_virtual_text = 'colored'
+let g:sonokai_transparent_background = 1
 
 colorscheme sonokai
 
