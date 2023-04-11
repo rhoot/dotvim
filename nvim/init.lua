@@ -14,7 +14,7 @@ vim.cmd [[
 ]]
 
 -- configs
-local paths = vim.split(vim.fn.glob("~/.config/nvim/init/*.lua"), "\n")
+local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
 for _,f in ipairs(paths) do
 	dofile(f)
 end
