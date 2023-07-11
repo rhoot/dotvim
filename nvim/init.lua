@@ -13,6 +13,10 @@ vim.cmd [[
 	packadd! nvim-lspconfig
 ]]
 
+if vim.fn.has("linux") ~= 0 then
+	vim.cmd "packadd! nvim-treesitter"
+end
+
 -- configs
 local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
 for _,f in ipairs(paths) do

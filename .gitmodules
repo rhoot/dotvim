@@ -56,7 +56,7 @@
 	path = pack/plugins/opt/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
 [submodule "bundle/vim-polyglot"]
-	path = pack/plugins/start/vim-polyglot
+	path = pack/plugins/opt/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "pack/plugins/start/sonokai"]
 	path = pack/plugins/start/sonokai
@@ -64,3 +64,6 @@
 [submodule "pack/plugins/opt/cmp-nvim-lsp-signature-help"]
 	path = pack/plugins/opt/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
+[submodule "pack/plugins/opt/nvim-treesitter"]
+	path = pack/plugins/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git

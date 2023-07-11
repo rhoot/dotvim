@@ -13,6 +13,10 @@ if executable("fzf")
 	packadd fzf.vim
 endif
 
+if !has("nvim") || !has("linux")
+	packadd vim-polyglot
+endif
+
 filetype plugin indent on
 syntax on
 
