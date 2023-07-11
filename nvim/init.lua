@@ -14,7 +14,7 @@ vim.cmd [[
 ]]
 
 if vim.fn.has("linux") ~= 0 then
-	vim.cmd "packadd! nvim-treesitter"
+	vim.cmd("packadd! nvim-treesitter")
 end
 
 -- configs
