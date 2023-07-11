@@ -38,8 +38,14 @@ local function on_attach(client, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
 
-require("lspconfig").clangd.setup {
+local lspconfig = require("lspconfig")
+
+lspconfig.clangd.setup {
 	on_attach = on_attach,
 	cmd = {"clangd", "--background-index", "--header-insertion=never"},
+}
+
+lspconfig.gopls.setup {
+	on_attach = on_attach
 }
 

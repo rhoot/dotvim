@@ -25,7 +25,7 @@ set nobackup
 
 " show whitespace
 set list
-set listchars=tab:>-,space:.,extends:>,precedes:<,nbsp:-
+set listchars=tab:-->,space:.,extends:>,precedes:<,nbsp:-
 
 " system clipboard
 map  <S-Insert> "+p
@@ -138,3 +138,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<CR>
+
+" vim-go
+let g:go_imports_autosave = 0
