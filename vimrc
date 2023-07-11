@@ -13,7 +13,7 @@ if executable("fzf")
 	packadd fzf.vim
 endif
 
-if !has("nvim") || !has("linux")
+if !has("nvim")
 	packadd vim-polyglot
 endif
 
