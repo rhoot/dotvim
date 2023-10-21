@@ -67,3 +67,9 @@
 [submodule "pack/plugins/opt/nvim-treesitter"]
 	path = pack/plugins/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/plugins/opt/neogit"]
+	path = pack/plugins/opt/neogit
+	url = https://github.com/NeogitOrg/neogit.git
+[submodule "pack/plugins/opt/plenary.nvim"]
+	path = pack/plugins/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git

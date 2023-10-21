@@ -9,6 +9,8 @@ vim.cmd [[
 vim.cmd [[
 	packadd! cmp-nvim-lsp
 	packadd! cmp-nvim-lsp-signature-help
+	packadd! neogit
+	packadd! plenary.nvim
 	packadd! nvim-cmp
 	packadd! nvim-lspconfig
 	packadd! nvim-treesitter
