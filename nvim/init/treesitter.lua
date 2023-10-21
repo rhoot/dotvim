@@ -10,6 +10,6 @@ configs.setup {
 	},
 
 	indent = {
-		enable = true,
+		enable = false,
 	},
 }

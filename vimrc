@@ -141,6 +141,8 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " vim-argwrap
+let g:argwrap_wrap_closing_brace = 0
+
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " vim-go
