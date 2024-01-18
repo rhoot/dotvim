@@ -20,6 +20,9 @@ endif
 filetype plugin indent on
 syntax on
 
+" remote session check (https://stackoverflow.com/a/16188077)
+let g:remoteSession = ($STY == "")
+
 " no history
 set viminfo='0,:0,<0,@0,f0
 
@@ -43,7 +46,7 @@ inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " colors
-if has('termguicolors')
+if has('termguicolors') && !g:remoteSession
 	set termguicolors
 endif
 
