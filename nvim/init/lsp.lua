@@ -1,6 +1,19 @@
 local cmp = require("cmp")
+local lspconfig = require("lspconfig")
+local snippy = require("snippy")
+
+local root_pattern = require('lspconfig.util').root_pattern
 
 cmp.setup {
+	snippet = {
+		expand = function(args)
+			if vim.snippet then
+				vim.snippet.expand(args.body)
+			else
+				snippy.expand_snippet(args.body)
+			end
+		end,
+	},
 	mapping = {
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -38,17 +51,24 @@ local function on_attach(client, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 end
 
-local lspconfig = require("lspconfig")
+-- https://github.com/sveltejs/language-tools/issues/2311
+local svelte_capabilities = vim.lsp.protocol.make_client_capabilities()
+svelte_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
 lspconfig.clangd.setup {
 	on_attach = on_attach,
 	cmd = {"clangd", "--background-index", "--header-insertion=never"},
 }
 
-lspconfig.gopls.setup {
-	on_attach = on_attach
+lspconfig.svelte.setup {
+	on_attach = on_attach,
+	capabilities = svelte_capabilities,
+	root_dir = root_pattern(".git"),
 }
 
-lspconfig.pyright.setup {}
-
-lspconfig.zls.setup {}
+lspconfig.cssls.setup { on_attach = on_attach }
+lspconfig.gopls.setup { on_attach = on_attach }
+lspconfig.html.setup { on_attach = on_attach }
+lspconfig.pyright.setup { on_attach = on_attach }
+lspconfig.tsserver.setup { on_attach = on_attach }
+lspconfig.zls.setup { on_attach = on_attach }

@@ -16,6 +16,10 @@ vim.cmd [[
 	packadd! nvim-treesitter
 ]]
 
+if not vim.snippet then
+	vim.cmd "packadd! nvim-snippy"
+end
+
 -- configs
 local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
 for _,f in ipairs(paths) do
