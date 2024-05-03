@@ -82,3 +82,6 @@
 [submodule "pack/plugins/opt/nvim-snippy"]
 	path = pack/plugins/opt/nvim-snippy
 	url = https://github.com/dcampos/nvim-snippy.git
+[submodule "pack/plugins/opt/fzf-lua"]
+	path = pack/plugins/opt/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git

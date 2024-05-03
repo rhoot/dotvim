@@ -8,13 +8,13 @@ if executable("ag") || executable("ack")
 	packadd ack.vim
 endif
 
-if executable("fzf")
-	packadd fzf
-	packadd fzf.vim
-endif
-
 if !has("nvim")
 	packadd vim-polyglot
+
+	if executable("fzf")
+		packadd fzf
+		packadd fzf.vim
+	endif
 endif
 
 filetype plugin indent on
