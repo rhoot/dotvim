@@ -113,6 +113,15 @@ map [q :cprev<CR>
 map ]b :bnext<CR>
 map [b :bprevious<CR>
 
+augroup templates
+	if filereadable(stdpath("data")."/site/skeleton.cpp")
+		autocmd BufNewFile *.cpp execute "0read ".stdpath("data")."/site/skeleton.cpp"
+	endif
+	if filereadable(stdpath("data")."/site/skeleton.h")
+		autocmd BufNewFile *.h execute "0read ".stdpath("data")."/site/skeleton.h"
+	endif
+augroup END
+
 " ack.vim
 if executable("rg")
 	let g:ackprg = "rg --vimgrep"
@@ -121,7 +130,7 @@ elseif executable("ag")
 endif
 
 " bbye
-map <S-BS> :Bdelete<CR>
+map <BS> :Bdelete<CR>
 
 " fzf
 if executable("ag")
