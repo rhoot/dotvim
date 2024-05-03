@@ -73,3 +73,15 @@
 [submodule "pack/plugins/opt/plenary.nvim"]
 	path = pack/plugins/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/plugins/opt/telescope.nvim"]
+	path = pack/plugins/opt/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "pack/plugins/start/vim-stabs"]
+	path = pack/plugins/start/vim-stabs
+	url = https://github.com/Thyrum/vim-stabs.git
+[submodule "pack/plugins/opt/neoformat"]
+	path = pack/plugins/opt/neoformat
+	url = https://github.com/sbdchd/neoformat.git
+[submodule "pack/plugins/opt/nvim-snippy"]
+	path = pack/plugins/opt/nvim-snippy
+	url = https://github.com/dcampos/nvim-snippy.git
