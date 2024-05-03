@@ -32,7 +32,7 @@ set nobackup
 
 " show whitespace
 set list
-set listchars=tab:-->,space:.,extends:>,precedes:<,nbsp:-
+set listchars=tab:>\ \ ,space:.,extends:>,precedes:<,nbsp:-
 
 " system clipboard
 map  <S-Insert> "+p
@@ -93,12 +93,12 @@ set nowrap
 set number
 set ruler
 set shiftround
-set shiftwidth=4
+set shiftwidth=3
 set showmatch
 set sidescroll=1
 set smartcase
 set smarttab
-set tabstop=4
+set tabstop=3
 set wildmenu
 set wildmode=longest,list
 
