@@ -3,3 +3,10 @@ vim.filetype.add({
 		hlsl = 'hlsl',
 	},
 })
+
+vim.filetype.add({
+	extension = {
+		frag = 'glsl',
+		vert = 'glsl',
+	},
+})

@@ -66,6 +66,7 @@ lspconfig.svelte.setup {
 }
 
 lspconfig.cssls.setup { on_attach = on_attach }
+lspconfig.glslls.setup { on_attach = on_attach }
 lspconfig.gopls.setup { on_attach = on_attach }
 lspconfig.html.setup { on_attach = on_attach }
 lspconfig.pyright.setup { on_attach = on_attach }
