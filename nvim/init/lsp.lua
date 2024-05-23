@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
-local snippy = require("snippy")
 
 local root_pattern = require('lspconfig.util').root_pattern
 
@@ -10,7 +9,7 @@ cmp.setup {
 			if vim.snippet then
 				vim.snippet.expand(args.body)
 			else
-				snippy.expand_snippet(args.body)
+				require("snippy").expand_snippet(args.body)
 			end
 		end,
 	},
