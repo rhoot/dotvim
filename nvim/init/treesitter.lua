@@ -1,7 +1,8 @@
-local configs = require('nvim-treesitter.configs')
+local configs = require("nvim-treesitter.configs")
+local util = require("util")
 
 configs.setup {
-	auto_install = vim.fn.executable("tree-sitter") ~= 0,
+	auto_install = util.executable("tree-sitter"),
 	ensure_installed = { "cpp", "lua" },
 
 	highlight = {

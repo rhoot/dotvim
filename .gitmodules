@@ -67,21 +67,15 @@
 [submodule "pack/plugins/opt/nvim-treesitter"]
 	path = pack/plugins/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "pack/plugins/opt/neogit"]
-	path = pack/plugins/opt/neogit
-	url = https://github.com/NeogitOrg/neogit.git
-[submodule "pack/plugins/opt/plenary.nvim"]
-	path = pack/plugins/opt/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
 [submodule "pack/plugins/start/vim-stabs"]
 	path = pack/plugins/start/vim-stabs
 	url = https://github.com/Thyrum/vim-stabs.git
-[submodule "pack/plugins/opt/neoformat"]
-	path = pack/plugins/opt/neoformat
-	url = https://github.com/sbdchd/neoformat.git
 [submodule "pack/plugins/opt/nvim-snippy"]
 	path = pack/plugins/opt/nvim-snippy
 	url = https://github.com/dcampos/nvim-snippy.git
 [submodule "pack/plugins/opt/fzf-lua"]
 	path = pack/plugins/opt/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/plugins/opt/lsp-zero.nvim"]
+	path = pack/plugins/opt/lsp-zero.nvim
+	url = https://github.com/VonHeikemen/lsp-zero.nvim.git

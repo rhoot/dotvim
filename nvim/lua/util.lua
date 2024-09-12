@@ -2,8 +2,16 @@ local m = {}
 
 m.path = {}
 
+function m.has(s)
+	return vim.fn.has(s) == 1
+end
+
+function m.executable(s)
+	return vim.fn.executable(s) == 1
+end
+
 function m.dirname(path)
-	if vim.fn.has("win32") then
+	if m.has("win32") then
 		return path:match("(.*)[/\\].*")
 	else
 		return path:match("(.*)/.*")
@@ -12,7 +20,7 @@ end
 
 function m.path.join(...)
 	local path = ""
-	local win = vim.fn.has("win32")
+	local win = m.has("win32")
 	local sep = win and "\\" or "/"
 
 	local function is_sep(c)

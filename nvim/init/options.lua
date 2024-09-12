@@ -1,8 +1,10 @@
+local util = require("util")
+
 local function set_cwd_title(cwd)
 	vim.o.titlestring = vim.fn.fnamemodify(cwd, ":t").." — nvim"
 end
 
-if vim.fn.has("mac") ~= 0 then
+if util.has("mac") then
 	vim.o.guifont = "JetBrains Mono:h12"
 else
 	vim.o.guifont = "JetBrains Mono:h10"

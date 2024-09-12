@@ -10,8 +10,7 @@ vim.cmd [[
 	packadd! cmp-nvim-lsp
 	packadd! cmp-nvim-lsp-signature-help
 	packadd! fzf-lua
-	packadd! neogit
-	packadd! plenary.nvim
+	packadd! lsp-zero.nvim
 	packadd! nvim-cmp
 	packadd! nvim-lspconfig
 	packadd! nvim-treesitter
