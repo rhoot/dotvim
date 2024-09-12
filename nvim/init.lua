@@ -14,6 +14,7 @@ vim.cmd [[
 	packadd! nvim-cmp
 	packadd! nvim-lspconfig
 	packadd! nvim-treesitter
+	packadd! toggleterm.nvim
 ]]
 
 if not vim.snippet then
