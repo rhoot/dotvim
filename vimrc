@@ -69,9 +69,9 @@ if has("gui_running")
 	if has("mac")
 		set guifont=JetBrainsMonoNF-Regular:h12
 	elseif has("linux")
-		set guifont=JetBrains\ Mono\ Nerd\ Font\ 10
+		set guifont=JetBrainsMono\ Nerd\ Font\ 10
 	else
-		set guifont=JetBrains\ Mono\ Nerd\ Font:h10
+		set guifont=JetBrainsMono\ Nerd\ Font:h10
 	endif
 endif
 
