@@ -67,11 +67,11 @@ colorscheme sonokai
 " GVim/MacVim fonts
 if has("gui_running")
 	if has("mac")
-		set guifont=JetBrainsMono-Regular:h12
+		set guifont=JetBrainsMonoNF-Regular:h12
 	elseif has("linux")
-		set guifont=JetBrains\ Mono\ 10
+		set guifont=JetBrains\ Mono\ Nerd\ Font\ 10
 	else
-		set guifont=JetBrains\ Mono:h10
+		set guifont=JetBrains\ Mono\ Nerd\ Font:h10
 	endif
 endif
 

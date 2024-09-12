@@ -1,10 +1,14 @@
 
 " neovim-qt ignores guifont...
 if exists(":GuiFont")
-	:GuiFont! JetBrains\ Mono:h10
-end
+	if has("mac")
+		:GuiFont! JetBrainsMono\ Nerd\ Font:h12
+	else
+		:GuiFont! JetBrainsMono\ Nerd\ Font:h10
+	endif
+endif
 
 " disable GUI tab line
 if exists(":GuiTabline")
 	:GuiTabline 0
-end
+endif
