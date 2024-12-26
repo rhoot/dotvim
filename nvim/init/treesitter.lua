@@ -3,7 +3,27 @@ local util = require("util")
 
 configs.setup {
 	auto_install = util.executable("tree-sitter"),
-	ensure_installed = { "cpp", "lua" },
+
+	ensure_installed = {
+		"asm",
+		"bash",
+		"c",
+		"cpp",
+		"css",
+		"go",
+		"html",
+		"javascript",
+		"json",
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"python",
+		"svelte",
+		"swift",
+		"toml",
+		"typescript",
+		"vim",
+	},
 
 	highlight = {
 		enable = true,
@@ -11,6 +31,7 @@ configs.setup {
 	},
 
 	indent = {
-		enable = true,
+		-- Too much latency when entering insert mode...
+		enable = false,
 	},
 }
