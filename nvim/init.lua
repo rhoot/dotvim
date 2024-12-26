@@ -25,5 +25,8 @@ end
 -- configs
 local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
 for _,f in ipairs(paths) do
-	dofile(f)
+	local ok, err = pcall(dofile, f)
+	if not ok then
+		vim.notify(err)
+	end
 end

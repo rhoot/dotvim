@@ -2,7 +2,11 @@ local toggleterm = require("toggleterm")
 local terminal = require("toggleterm.terminal")
 local util = require("util")
 
-toggleterm.setup {}
+toggleterm.setup {
+	float_ops = {
+		win_blend = 60,
+	},
+}
 
 vim.keymap.set("n", "T", function() toggleterm.toggle_command() end)
 

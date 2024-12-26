@@ -47,5 +47,6 @@ lspconfig.cssls.setup {}
 lspconfig.gopls.setup {}
 lspconfig.html.setup {}
 lspconfig.pyright.setup {}
+lspconfig.sourcekit.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
