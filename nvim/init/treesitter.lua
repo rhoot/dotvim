@@ -1,8 +1,8 @@
 local configs = require("nvim-treesitter.configs")
 local util = require("util")
 
-configs.setup {
-	auto_install = util.executable("tree-sitter"),
+local options = {
+	auto_install = false,
 
 	ensure_installed = {
 		"asm",
@@ -19,7 +19,6 @@ configs.setup {
 		"markdown_inline",
 		"python",
 		"svelte",
-		"swift",
 		"toml",
 		"typescript",
 		"vim",
@@ -35,3 +34,12 @@ configs.setup {
 		enable = false,
 	},
 }
+
+if util.executable("tree-sitter") then
+	options.auto_install = true
+
+	-- LSPs that _require_ tree-sitter to be installed
+	table.insert(options.ensure_installed, "swift")
+end
+
+configs.setup(options)
