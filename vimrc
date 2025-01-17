@@ -39,11 +39,21 @@ map  <S-Insert> "+p
 map  <C-Insert> "+y
 map! <S-Insert> <C-R>+
 
+" arrow keys -> screen lines
+nnoremap <Up> gk
+xnoremap <Up> gk
+inoremap <Up> <C-o>gk
+nnoremap <Down> gj
+xnoremap <Down> gj
+inoremap <Down> <C-o>gj
+
 " completion
 set complete-=i
 set completeopt=longest,menuone,noinsert
 inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
+inoremap <expr><Up> pumvisible() ? '<C-P>' : '<C-O>gk'
+inoremap <expr><Down> pumvisible() ? '<C-N>' : '<C-O>gj'
 
 " colors
 if has('termguicolors') && !g:remoteSession
