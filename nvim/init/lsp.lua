@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local lsp_zero = require("lsp-zero")
-local util = require("lspconfig.util")
+local lsp_util = require("lspconfig.util")
+local util = require("util")
 
 -- Global binds
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
@@ -40,13 +41,17 @@ lspconfig.clangd.setup {
 
 lspconfig.svelte.setup {
 	capabilities = svelte_capabilities,
-	root_dir = util.root_pattern(".git"),
+	root_dir = lsp_util.root_pattern(".git"),
 }
 
 lspconfig.cssls.setup {}
 lspconfig.gopls.setup {}
 lspconfig.html.setup {}
 lspconfig.pyright.setup {}
-lspconfig.sourcekit.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
+
+-- sourcekit also tries to spawn for cpp files, and warns when it fails...
+if util.executable("sourcekit-lsp") then
+	lspconfig.sourcekit.setup {}
+end
