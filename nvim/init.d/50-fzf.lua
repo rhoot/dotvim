@@ -1,3 +1,7 @@
+if not require("pkg_mgr").is_loaded("fzf-lua") then
+	return
+end
+
 local fzf_lua = require("fzf-lua")
 local util = require("util")
 

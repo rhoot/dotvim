@@ -1,3 +1,7 @@
+if not require("pkg_mgr").is_loaded("nvim-treesitter") then
+	return
+end
+
 local configs = require("nvim-treesitter.configs")
 local util = require("util")
 

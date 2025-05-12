@@ -1,3 +1,7 @@
+if not require("pkg_mgr").is_loaded("toggleterm.nvim") then
+	return
+end
+
 local toggleterm = require("toggleterm")
 local terminal = require("toggleterm.terminal")
 local util = require("util")

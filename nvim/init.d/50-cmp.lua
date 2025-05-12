@@ -1,3 +1,7 @@
+if not require("pkg_mgr").is_loaded("nvim-cmp") then
+	return
+end
+
 local cmp = require("cmp")
 
 -- Can be removed after nvim 0.10

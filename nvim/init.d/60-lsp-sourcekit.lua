@@ -1,4 +1,4 @@
-if not vim.lsp.config then
+if not require("pkg_mgr").is_loaded("nvim-lspconfig") then
 	return
 end
 
