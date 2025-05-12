@@ -10,7 +10,6 @@ vim.cmd [[
 	packadd! cmp-nvim-lsp
 	packadd! cmp-nvim-lsp-signature-help
 	packadd! fzf-lua
-	packadd! lsp-zero.nvim
 	packadd! nvim-cmp
 	packadd! nvim-lspconfig
 	packadd! nvim-treesitter
@@ -27,6 +26,6 @@ local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
 for _,f in ipairs(paths) do
 	local ok, err = pcall(dofile, f)
 	if not ok then
-		vim.notify(err)
+		vim.notify(err, vim.log.levels.ERROR)
 	end
 end

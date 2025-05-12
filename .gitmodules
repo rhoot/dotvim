@@ -73,9 +73,6 @@
 [submodule "pack/plugins/opt/fzf-lua"]
 	path = pack/plugins/opt/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
-[submodule "pack/plugins/opt/lsp-zero.nvim"]
-	path = pack/plugins/opt/lsp-zero.nvim
-	url = https://github.com/VonHeikemen/lsp-zero.nvim.git
 [submodule "pack/plugins/opt/toggleterm.nvim"]
 	path = pack/plugins/opt/toggleterm.nvim
 	url = https://github.com/akinsho/toggleterm.nvim.git

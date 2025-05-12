@@ -1,57 +1,61 @@
-local lspconfig = require("lspconfig")
-local lsp_zero = require("lsp-zero")
-local lsp_util = require("lspconfig.util")
-local util = require("util")
-
--- Global binds
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev) -- default in nvim 0.10
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next) -- default in nvim 0.10
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-vim.keymap.set("n", "<space>h", ":ClangdSwitchSourceHeader<CR>")
-
--- LSP attach callback
-function on_attach(client, bufnr)
-	lsp_zero.default_keymaps({
-		buffer = bufnr,
-		exclude = { "<F2>", "<F3>", "<F4>" },
-		preserve_mappings = false,
-	})
-
-	local bufopts = { buffer=bufnr }
-	vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
-	vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, bufopts)
+-- requires nvim >= 0.11
+if not vim.lsp.enable then
+	return
 end
 
--- LSP setup
-lsp_zero.extend_lspconfig({
-	sign_text = true,
-	lsp_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+vim.keymap.set("n", "gh", ":LspClangdSwitchSourceHeader<CR>")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+		-- the default diagnostic binds don't auto-open the diagnostic float
+		vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count=-vim.v.count1, float=true }) end, { buffer=args.buf })
+		vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count=vim.v.count1, float=true }) end, { buffer=args.buf })
+		vim.keymap.set("n", "[D", function() vim.diagnostic.jump({ count=-math.huge, wrap=false, float=true }) end, { buffer=args.buf })
+		vim.keymap.set("n", "]D", function() vim.diagnostic.jump({ count=math.huge, wrap=false, float=true }) end, { buffer=args.buf })
+
+		-- enable completion side effects
+		if client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger=true })
+		end
+
+		-- enable inlay hints
+		if client:supports_method("textDocument/inlayHint") then
+			vim.lsp.inlay_hint.enable(true, { bufnr=args.buf })
+		end
+
+		-- enable idle symbol highlighting
+		if client:supports_method("textDocument/documentHighlight") then
+			local augroup = vim.api.nvim_create_augroup("lsp_highlight", { clear=false })
+			vim.api.nvim_clear_autocmds({ buffer=bufnr, group=augroup })
+			vim.api.nvim_create_autocmd({ "CursorHold" }, { group=augroup, buffer=args.buf, callback=vim.lsp.buf.document_highlight })
+			vim.api.nvim_create_autocmd({ "CursorMoved" }, { group=augroup, buffer=args.buf, callback=vim.lsp.buf.clear_references })
+		end
+	end,
 })
 
--- https://github.com/sveltejs/language-tools/issues/2311
-local svelte_capabilities = vim.lsp.protocol.make_client_capabilities()
-svelte_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
-
-lspconfig.clangd.setup {
-	cmd = {"clangd", "--background-index", "--header-insertion=never"},
-}
-
-lspconfig.svelte.setup {
-	capabilities = svelte_capabilities,
-	root_dir = lsp_util.root_pattern(".git"),
-}
-
-lspconfig.cssls.setup {}
-lspconfig.gopls.setup {}
-lspconfig.html.setup {}
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.zls.setup {}
+vim.lsp.config.clangd.cmd = { "clangd", "--background-index", "--header-insertion=never" }
 
 -- sourcekit also tries to spawn for cpp files, and warns when it fails...
-if util.executable("sourcekit-lsp") then
-	lspconfig.sourcekit.setup {}
-end
+vim.lsp.config.sourcekit.filetypes = { "swift" }
+
+-- https://github.com/sveltejs/language-tools/issues/2311
+vim.lsp.config.svelte.root_markers = { ".git", "package.json" }
+vim.lsp.config("svelte", {
+	workspace = {
+		didChangeWatchedFiles = {
+			dynamicRegistration = true,
+		},
+	},
+})
+
+vim.lsp.enable("clangd")
+vim.lsp.enable("cssls")
+vim.lsp.enable("gopls")
+vim.lsp.enable("html")
+vim.lsp.enable("pyright")
+vim.lsp.enable("sourcekit")
+vim.lsp.enable("svelte")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("zls")

@@ -110,6 +110,7 @@ set signcolumn=yes
 set smartcase
 set smarttab
 set tabstop=3
+set updatetime=1000
 set wildmenu
 set wildmode=longest,list
 
