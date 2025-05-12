@@ -22,7 +22,7 @@ if not vim.snippet then
 end
 
 -- configs
-local paths = vim.split(vim.fn.glob("~/.vim/nvim/init/*.lua"), "\n")
+local paths = vim.split(vim.fn.glob("~/.vim/nvim/init.d/*.lua"), "\n")
 for _,f in ipairs(paths) do
 	local ok, err = pcall(dofile, f)
 	if not ok then
