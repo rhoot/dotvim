@@ -19,7 +19,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	pattern = "term://*toggleterm#*",
 	callback = function(event)
 		local opts = { buffer=event.buf }
-		vim.keymap.set("t", "<esc>", "<C-\\><C-n>", opts)
 		vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>", opts)
 	end,
 })
@@ -38,7 +37,6 @@ if util.executable("lazygit") then
 		hidden = true,
 
 		on_open = function(term)
-			vim.keymap.del("t", "<esc>", { buffer=term.bufnr })
 			vim.keymap.set("t", "<leader>g", toggle_lazygit, { buffer=term.bufnr, silent=true })
 		end,
 	}
