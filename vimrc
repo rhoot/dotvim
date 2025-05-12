@@ -106,6 +106,7 @@ set shiftround
 set shiftwidth=3
 set showmatch
 set sidescroll=1
+set signcolumn=yes
 set smartcase
 set smarttab
 set tabstop=3
@@ -117,6 +118,9 @@ if has("gui_running")
 	set lines=56
 	set guioptions-=T
 end
+
+" stop overriding my settings please...
+let g:sass_recommended_style = 0
 
 map ]q :cnext<CR>
 map [q :cprev<CR>
