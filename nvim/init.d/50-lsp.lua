@@ -3,6 +3,8 @@ if not vim.lsp.enable then
 	return
 end
 
+local lsp_signature = require("lsp_signature")
+
 local function toggle_inlay_hints()
 	local clients = vim.lsp.get_clients({ bufnr=0 })
 
@@ -18,6 +20,12 @@ end
 local function on_lsp_attach(client_id, bufnr)
 	local client = vim.lsp.get_client_by_id(client_id)
 
+	lsp_signature.on_attach({
+		hint_enable = false,
+		handler_opts = { border = "single" },
+		toggle_key = "<C-S-Space>",
+	}, bufnr)
+
 	-- the default diagnostic binds don't auto-open the diagnostic float
 	vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count=-vim.v.count1, float=true }) end, { buffer=buf })
 	vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count=vim.v.count1, float=true }) end, { buffer=buf })
@@ -27,6 +35,7 @@ local function on_lsp_attach(client_id, bufnr)
 	-- enable completion side effects
 	if client:supports_method("textDocument/completion") then
 		vim.lsp.completion.enable(true, client.id, buf, { autotrigger=true })
+		vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { buffer=buf })
 	end
 
 	-- enable inlay hints
@@ -42,6 +51,26 @@ local function on_lsp_attach(client_id, bufnr)
 		vim.api.nvim_create_autocmd({ "CursorMoved" }, { group=augroup, buffer=buf, callback=vim.lsp.buf.clear_references })
 	end
 end
+
+local function bind_cmp(key, cmp_input)
+	vim.keymap.set("i", key, function()
+		return vim.fn.pumvisible() == 1 and cmp_input or key
+	end, { expr=true })
+end
+
+bind_cmp("<Up>", "<C-p>")
+bind_cmp("<Down>", "<C-n>")
+bind_cmp("<Esc>", "<C-e>")
+
+vim.keymap.set("i", "<Tab>", function()
+	if vim.fn.pumvisible() == 1 then
+		return "<C-y>"
+	elseif vim.snippet.active({ direction=1 }) then
+		return "<Cmd>lua vim.snippet.jump(1)<CR>"
+	else
+		return "<Tab>"
+	end
+end, { expr=1 })
 
 vim.api.nvim_create_user_command(
 	"LspHints",

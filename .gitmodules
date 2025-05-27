@@ -37,12 +37,6 @@
 [submodule "bundle/nvim-lspconfig"]
 	path = pack/plugins/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
-[submodule "bundle/nvim-cmp"]
-	path = pack/plugins/opt/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp.git
-[submodule "bundle/cmp-nvim-lsp"]
-	path = pack/plugins/opt/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
 [submodule "bundle/tcomment_vim"]
 	path = pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -61,15 +55,9 @@
 [submodule "pack/plugins/start/sonokai"]
 	path = pack/plugins/start/sonokai
 	url = https://github.com/sainnhe/sonokai.git
-[submodule "pack/plugins/opt/cmp-nvim-lsp-signature-help"]
-	path = pack/plugins/opt/cmp-nvim-lsp-signature-help
-	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
 [submodule "pack/plugins/opt/nvim-treesitter"]
 	path = pack/plugins/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "pack/plugins/opt/nvim-snippy"]
-	path = pack/plugins/opt/nvim-snippy
-	url = https://github.com/dcampos/nvim-snippy.git
 [submodule "pack/plugins/opt/fzf-lua"]
 	path = pack/plugins/opt/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
@@ -82,3 +70,6 @@
 [submodule "pack/plugins/start/vim-devicons"]
 	path = pack/plugins/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "pack/plugins/opt/lsp_signature.nvim"]
+	path = pack/plugins/opt/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim.git

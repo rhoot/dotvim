@@ -49,11 +49,7 @@ inoremap <Down> <C-o>gj
 
 " completion
 set complete-=i
-set completeopt=longest,menuone,noinsert
-inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
-inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
-inoremap <expr><Up> pumvisible() ? '<C-P>' : '<C-O>gk'
-inoremap <expr><Down> pumvisible() ? '<C-N>' : '<C-O>gj'
+set completeopt=fuzzy,menuone,noinsert
 
 " colors
 if has('termguicolors') && !g:remoteSession
@@ -128,14 +124,17 @@ map [q :cprev<CR>
 map ]b :bnext<CR>
 map [b :bprevious<CR>
 
-augroup templates
-	if filereadable(stdpath("data")."/site/skeleton.cpp")
-		autocmd BufNewFile *.cpp execute "0read ".stdpath("data")."/site/skeleton.cpp"
-	endif
-	if filereadable(stdpath("data")."/site/skeleton.h")
-		autocmd BufNewFile *.h execute "0read ".stdpath("data")."/site/skeleton.h"
-	endif
-augroup END
+" stdpath is nvim exclusive
+if has("nvim")
+	augroup templates
+		if filereadable(stdpath("data")."/site/skeleton.cpp")
+			autocmd BufNewFile *.cpp execute "0read ".stdpath("data")."/site/skeleton.cpp"
+		endif
+		if filereadable(stdpath("data")."/site/skeleton.h")
+			autocmd BufNewFile *.h execute "0read ".stdpath("data")."/site/skeleton.h"
+		endif
+	augroup END
+endif
 
 " ack.vim
 if executable("rg")
