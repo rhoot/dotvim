@@ -4,7 +4,7 @@ set nocompatible
 packadd! sonokai
 
 " optional plugins
-if executable("ag") || executable("ack")
+if executable("ag") || executable("ack") || executable("rg")
 	packadd ack.vim
 endif
 
@@ -75,9 +75,9 @@ if has("gui_running")
 	if has("mac")
 		set guifont=JetBrainsMonoNF-Regular:h12
 	elseif has("linux")
-		set guifont=JetBrainsMono\ Nerd\ Font\ 10
+		set guifont=VictorMono\ NF\ 10
 	else
-		set guifont=JetBrainsMono\ Nerd\ Font:h10
+		set guifont=VictorMono\ NF:h10
 	endif
 endif
 
@@ -99,13 +99,13 @@ set nowrap
 set number
 set ruler
 set shiftround
-set shiftwidth=3
+set shiftwidth=4
 set showmatch
 set sidescroll=1
 set signcolumn=yes
 set smartcase
 set smarttab
-set tabstop=3
+set tabstop=4
 set updatetime=1000
 set wildmenu
 set wildmode=longest,list
@@ -138,7 +138,7 @@ endif
 
 " ack.vim
 if executable("rg")
-	let g:ackprg = "rg --vimgrep"
+	let g:ackprg = "rg -i --vimgrep"
 elseif executable("ag")
 	let g:ackprg = "ag --vimgrep"
 endif

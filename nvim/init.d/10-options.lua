@@ -7,7 +7,7 @@ end
 if util.has("mac") then
 	vim.o.guifont = "JetBrains Mono:h12"
 else
-	vim.o.guifont = "JetBrains Mono:h10"
+	vim.o.guifont = "VictorMono NF:h10"
 end
 
 vim.o.mouse = "nvi"
