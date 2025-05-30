@@ -26,6 +26,9 @@ local function on_lsp_attach(client_id, bufnr)
 		toggle_key = "<C-S-Space>",
 	}, bufnr)
 
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer=buf })
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=buf })
+
 	-- the default diagnostic binds don't auto-open the diagnostic float
 	vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count=-vim.v.count1, float=true }) end, { buffer=buf })
 	vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count=vim.v.count1, float=true }) end, { buffer=buf })
