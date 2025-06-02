@@ -65,6 +65,10 @@ bind_cmp("<Up>", "<C-p>")
 bind_cmp("<Down>", "<C-n>")
 bind_cmp("<Esc>", "<C-e>")
 
+vim.diagnostic.config({
+	virtual_text = {},
+})
+
 vim.keymap.set("i", "<Tab>", function()
 	if vim.fn.pumvisible() == 1 then
 		return "<C-y>"
