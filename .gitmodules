@@ -73,3 +73,6 @@
 [submodule "pack/plugins/opt/lsp_signature.nvim"]
 	path = pack/plugins/opt/lsp_signature.nvim
 	url = https://github.com/ray-x/lsp_signature.nvim.git
+[submodule "pack/plugins/opt/multiple-cursors.nvim"]
+	path = pack/plugins/opt/multiple-cursors.nvim
+	url = https://github.com/brenton-leighton/multiple-cursors.nvim.git
