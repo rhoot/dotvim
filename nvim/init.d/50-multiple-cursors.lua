@@ -65,7 +65,7 @@ cursors.setup({
 vim.keymap.set({"n", "x", "i"}, "<C-Up>", cursors.add_cursor_up)
 vim.keymap.set({"n", "x", "i"}, "<C-Down>", cursors.add_cursor_down)
 vim.keymap.set({"n", "x", "i"}, "<C-LeftMouse>", cursors.mouse_add_delete_cursor)
-vim.keymap.set({"n", "x", "i"}, "<C-m>", add_cursors_to_matches)
+vim.keymap.set({"n", "x", "i"}, "<C-.>", add_cursors_to_matches)
 vim.keymap.set({"n", "i"}, "<C-d>", add_cursor_and_jump_to_next_match)
 vim.keymap.set({"n", "i"}, "<C-k>", jump_to_next_match)
 vim.keymap.set("x", "<C-i>", cursors.add_cursors_to_visual_area)
