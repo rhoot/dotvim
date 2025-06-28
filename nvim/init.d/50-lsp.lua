@@ -17,6 +17,20 @@ local function toggle_inlay_hints()
 	vim.lsp.inlay_hint.enable(not is_enabled, { bufnr=0 })
 end
 
+local function switch_source_header(client, bufnr)
+	local params = vim.lsp.util.make_text_document_params(bufnr)
+	client.request("textDocument/switchSourceHeader", params, function(err, result)
+		if err then
+			error(tostring(err))
+		end
+		if not result then
+			vim.notify("corresponding file cannot be determined")
+			return
+		end
+		vim.cmd.edit(vim.uri_to_fname(result))
+	end, bufnr)
+end
+
 local function on_lsp_attach(client_id, bufnr)
 	local client = vim.lsp.get_client_by_id(client_id)
 
@@ -26,32 +40,37 @@ local function on_lsp_attach(client_id, bufnr)
 		toggle_key = "<C-S-Space>",
 	}, bufnr)
 
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer=buf })
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=buf })
+	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer=bufnr })
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=bufnr })
 
 	-- the default diagnostic binds don't auto-open the diagnostic float
-	vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count=-vim.v.count1, float=true }) end, { buffer=buf })
-	vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count=vim.v.count1, float=true }) end, { buffer=buf })
-	vim.keymap.set("n", "[D", function() vim.diagnostic.jump({ count=-math.huge, wrap=false, float=true }) end, { buffer=buf })
-	vim.keymap.set("n", "]D", function() vim.diagnostic.jump({ count=math.huge, wrap=false, float=true }) end, { buffer=buf })
+	vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count=-vim.v.count1, float=true }) end, { buffer=bufnr })
+	vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count=vim.v.count1, float=true }) end, { buffer=bufnr })
+	vim.keymap.set("n", "[D", function() vim.diagnostic.jump({ count=-math.huge, wrap=false, float=true }) end, { buffer=bufnr })
+	vim.keymap.set("n", "]D", function() vim.diagnostic.jump({ count=math.huge, wrap=false, float=true }) end, { buffer=bufnr })
 
 	-- enable completion side effects
 	if client:supports_method("textDocument/completion") then
-		vim.lsp.completion.enable(true, client.id, buf, { autotrigger=true })
-		vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { buffer=buf })
+		vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger=true })
+		vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { buffer=bufnr })
 	end
 
 	-- enable inlay hints
 	if client:supports_method("textDocument/inlayHint") then
-		vim.lsp.inlay_hint.enable(true, { bufnr=buf })
+		vim.lsp.inlay_hint.enable(true, { bufnr=bufnr })
 	end
 
 	-- enable idle symbol highlighting
 	if client:supports_method("textDocument/documentHighlight") then
 		local augroup = vim.api.nvim_create_augroup("lsp_highlight", { clear=false })
 		vim.api.nvim_clear_autocmds({ buffer=bufnr, group=augroup })
-		vim.api.nvim_create_autocmd({ "CursorHold" }, { group=augroup, buffer=buf, callback=vim.lsp.buf.document_highlight })
-		vim.api.nvim_create_autocmd({ "CursorMoved" }, { group=augroup, buffer=buf, callback=vim.lsp.buf.clear_references })
+		vim.api.nvim_create_autocmd({ "CursorHold" }, { group=augroup, buffer=bufnr, callback=vim.lsp.buf.document_highlight })
+		vim.api.nvim_create_autocmd({ "CursorMoved" }, { group=augroup, buffer=bufnr, callback=vim.lsp.buf.clear_references })
+	end
+
+	-- enable header/source toggling
+	if client:supports_method("textDocument/switchSourceHeader") then
+		vim.keymap.set("n", "gh", function() switch_source_header(client, bufnr) end, { buffer=bufnr })
 	end
 end
 

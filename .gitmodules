@@ -34,9 +34,6 @@
 [submodule "bundle/omnisharp-vim"]
 	path = pack/plugins/start/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim.git
-[submodule "bundle/nvim-lspconfig"]
-	path = pack/plugins/opt/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig.git
 [submodule "bundle/tcomment_vim"]
 	path = pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
