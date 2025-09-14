@@ -14,6 +14,7 @@ end
 
 enable_lsp("clangd")
 enable_lsp("gdscript")
+enable_lsp("omnisharp")
 enable_lsp("slangd")
 enable_lsp("sourcekit")
 enable_lsp("svelte")
