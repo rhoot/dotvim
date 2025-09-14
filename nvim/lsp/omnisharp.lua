@@ -1,7 +1,13 @@
-local function find_parent_dir(path, pattern)
+local function find_parent_dir(path, pattern, is_pattern)
 	for dir in vim.fs.parents(path) do
-		for name, type in vim.fs.dir(dir) do
-			if name:match(pattern) then
+		if is_pattern then
+			for name, type in vim.fs.dir(dir) do
+				if name:match(pattern) then
+					return dir
+				end
+			end
+		else
+			if vim.uv.fs_stat(dir.."/"..pattern) then
 				return dir
 			end
 		end
@@ -14,10 +20,10 @@ return {
 	filetypes = { "cs" },
 	root_dir = function(bufnr, on_dir)
 		local fpath = vim.api.nvim_buf_get_name(bufnr)
-		local parent_dir = find_parent_dir(fpath, "^omnisharp.json$")
-			or find_parent_dir(fpath, "%.sln$")
-			or find_parent_dir(fpath, "%.csproj$")
-			or find_parent_dir(fpath, "^.git$")
+		local parent_dir = find_parent_dir(fpath, "omnisharp.json", false)
+			or find_parent_dir(fpath, "%.sln$", true)
+			or find_parent_dir(fpath, "%.csproj$", true)
+			or find_parent_dir(fpath, ".git", false)
 		if parent_dir then
 			on_dir(parent_dir)
 		end
