@@ -3,7 +3,8 @@ if not vim.lsp.enable then
 	return
 end
 
-local lsp_signature = require("lsp_signature")
+local pkg_mgr = require("pkg_mgr")
+local lsp_signature = pkg_mgr.is_loaded("lsp_signature.nvim") and require("lsp_signature")
 
 local function toggle_inlay_hints()
 	local clients = vim.lsp.get_clients({ bufnr=0 })
@@ -34,11 +35,13 @@ end
 local function on_lsp_attach(client_id, bufnr)
 	local client = vim.lsp.get_client_by_id(client_id)
 
-	lsp_signature.on_attach({
-		hint_enable = false,
-		handler_opts = { border = "single" },
-		toggle_key = "<C-S-Space>",
-	}, bufnr)
+	if lsp_signature then
+		lsp_signature.on_attach({
+			hint_enable = false,
+			handler_opts = { border = "single" },
+			toggle_key = "<C-S-Space>",
+		}, bufnr)
+	end
 
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer=bufnr })
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=bufnr })
