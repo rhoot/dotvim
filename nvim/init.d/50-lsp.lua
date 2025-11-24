@@ -18,6 +18,14 @@ local function toggle_inlay_hints()
 	vim.lsp.inlay_hint.enable(not is_enabled, { bufnr=0 })
 end
 
+local function stop_all_clients()
+	local clients = vim.lsp.get_clients({ bufnr=0 })
+
+	for _, client in ipairs(clients) do
+		client:stop()
+	end
+end
+
 local function switch_source_header(client, bufnr)
 	local params = vim.lsp.util.make_text_document_params(bufnr)
 	client.request("textDocument/switchSourceHeader", params, function(err, result)
@@ -105,6 +113,11 @@ vim.api.nvim_create_user_command(
 	"LspHints",
 	toggle_inlay_hints,
 	{ desc = "Toggle LSP inline hints on or off for the current buffer" })
+
+vim.api.nvim_create_user_command(
+	"LspStop",
+	stop_all_clients,
+	{ desc = "Stop all running LSP clients" })
 
 vim.api.nvim_create_autocmd(
 	"LspAttach",
