@@ -57,6 +57,7 @@ if has('termguicolors') && !g:remoteSession
 endif
 
 let g:sonokai_better_performance = 1
+let g:sonokai_colors_override = {'bg0': ['#212227', '235']}
 let g:sonokai_current_word = 'grey background'
 let g:sonokai_diagnostic_text_highlight = 1
 let g:sonokai_diagnostic_virtual_text = 'highlighted'
@@ -64,6 +65,16 @@ let g:sonokai_diagnostic_virtual_text = 'highlighted'
 if !has("gui_running")
 	let g:sonokai_transparent_background = 1
 end
+
+function! s:sonokai_custom() abort
+	let l:palette = sonokai#get_palette('default', {})
+	call sonokai#highlight('DiagnosticDeprecated', l:palette.none, l:palette.bg_purple, 'undercurl', l:palette.purple)
+endfunction
+
+augroup SonokaiCustom
+	autocmd!
+	autocmd ColorScheme sonokai call s:sonokai_custom()
+augroup END
 
 colorscheme sonokai
 
